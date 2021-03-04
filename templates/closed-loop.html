@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<meta content = "utf-8">
+		<title> Gráfico</title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+		<link href="static/open-loop.css?q7618275186254168" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="static/request.js"></script>
+		<script type = "text/javascript" src = "static/Chart.js"></script>
+	</head>
+	<body>
+		<div id="all">
+			
+			<div id = "graph" class = "table-elements">
+				<p><canvas class="canvas" id="top-graph"></canvas><p><canvas class="canvas" id="bottom-graph"></canvas>
+			</div>
+			
+			<div id="command-bar" class="table-elements"><p>
+				<button class="btn top-button" id="start" onclick="startButtonClick()">Iniciar</button>
+				<button class="btn top-button" id="stop" onclick="stopButtonClick()">Parar</button>
+				<button class="btn top-button" id="save" onclick="saveButtonClick()">Salvar</button>
+			</div>
+
+			<div id="real-time-reading" class="table-elements">
+				<h4>Leitura em tempo real</h4>
+				
+				<div class='table-elements real-time-reading-data'>
+					<nobr>t = <span id='input-time'>0</span> s</nobr>
+				</div>
+				
+				<div class='table-elements real-time-reading-data'>
+					<nobr>V(t) = <span id='read-value'>0</span></nobr></div><div class='table-elements real-time-reading-data'><nobr>Vmax = <span id='max-value'>0</span></nobr></div><div class='table-elements real-time-reading-data'><nobr>Vmin = <span id='min-value'>0</span></nobr>
+				</div>
+			</div>
+
+			<div id = "main-data" class = "table-elements">
+				<div id = "loop-description"><h3 id="loop-description-value">Malha de controle fechada</h3></div>
+				
+				<div id = "select-loop" class = "table-elements">
+					<p>Tipo de malha<br>
+					<button onClick="window.location.href = 'open-loop'">Malha Aberta</button>
+					<button>Malha Fechada</button>
+				</div>
+				
+				<div id = "bottom-part" class="table-elements">
+					<div>
+						<h4>Especificações</h4>
+						<p>Tempo de amostragem: <input type='text' id='sampling-time' class='input-values' value="1">s
+						<p>Duração: <input type='text' id='end-time' class='input-values' value="0">s
+						
+						<p><p><select id="controller-type-selector" onchange="controllerTypeHaveChanged()">
+							<option value="P">P</option>
+							<option value="PI">PI</option>
+							<option value="PD">PD</option>
+							<option value="PID">PID</option>
+						</select>
+
+						<div id="controller-value-zone">
+							<p><span class="special-font">P: </span><input type="text" id="proportional" class="input-values" value="0">
+						</div>
+
+						<div id="checkbox-zone">
+							<label class="switch">
+								<input type="checkbox" id="use-current-sensor">
+								<span class="slider round"></span>
+							</label> Ler corrente
+							<p><label class="switch">
+								<input type="checkbox" id="use-analog-input">
+								<span class="slider round"></span>
+							</label> Ler entrada analógica
+						</div>
+
+						<p><p><button id="filter-project" onClick="window.location.href = 'filter'">Filtro</button>
+					</div>
+					
+					<div>
+						<img src="static/LogoCefetmg.png" alt="Imagem do logo do Cefet" width="200"></img>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="static/closed-loop.js?q=24" type="text/javascript"></script>
+	</body>
+</html>
+
