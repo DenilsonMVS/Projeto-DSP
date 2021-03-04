@@ -1,0 +1,78 @@
+
+body {
+	background-color: gray
+}
+
+.table-elements {
+	background-color: silver;
+	border: 3px solid #696969;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#all {
+	display: grid;
+	grid-template-columns: 40% auto;
+	grid-template-rows: auto auto auto;
+	grid-gap: 5px;
+}
+
+#graph {
+	grid-row-start: 1;
+	grid-row-end: 4;
+}
+
+#command-bar {
+	text-align: center;
+}
+
+#main-data {
+	grid-row-start: 2;
+	grid-row-end: 4;
+	display: grid;
+	grid-template-rows: 100px auto;
+}
+
+#loop-description {
+	text-align: center;
+}
+
+#select-loop {
+	padding: 0;
+	text-align: center;
+}
+
+#bottom-part {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	text-align: center;
+	display: grid;
+	grid-template-columns: 50% auto;
+}
+
+#real-time-reading {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.real-time-reading-data {
+	float: left;
+	width: 20%;
+	height: 2em;
+	margin: 2px;
+	overflow: hidden;
+	display: flex;
+}
+
+nobr {
+	align-self: center;
+}
+
+.top-button {
+	height: 3em;
+	width: 30%;
+}
+
+.input-values {
+	width: 100px;
+}
